@@ -45,7 +45,7 @@ func (z *ZStack) SendApplicationMessageToNode(ctx context.Context, destinationAd
 	if requireAck {
 		_, err = z.nodeRequest(ctx, &request, &AfDataRequestReply{}, &AfDataConfirm{}, func(i interface{}) bool {
 			msg := i.(*AfDataConfirm)
-			return msg.TransactionID == transactionId && msg.Endpoint == message.DestinationEndpoint
+			return msg.TransactionID == transactionId && msg.Endpoint == message.SourceEndpoint
 		})
 	} else {
 		err = z.requestResponder.RequestResponse(ctx, &request, &AfDataRequestReply{})
