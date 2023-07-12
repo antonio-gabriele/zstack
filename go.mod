@@ -1,4 +1,4 @@
-module github.com/shimmeringbee/zstack
+module github.com/antonio-gabriele/zstack
 
 go 1.14
 
